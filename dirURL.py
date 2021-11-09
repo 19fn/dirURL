@@ -21,7 +21,7 @@ class Contador(object):
 # Exit
 def ctrl_c(sig,frame):
     print(Fore.RED +"\n\n\n[!] CTRL_C --> Saliendo\n\n")
-    quit()
+    exit()
 signal.signal(signal.SIGINT, ctrl_c)
 
 # Get Url
@@ -37,17 +37,18 @@ def url(url):
   print(Fore.YELLOW+"\n[+] Total de direcciones web encontradas: "+str(cant_url.siguiente()))          
 
 # Main
-try:
-  os.system("cls")
-  while True:
-    dir_url = input(Fore.RED+"\n[!] ctrl-c para salir."+Fore.RESET+"\n\nIngrese una direccion web (example: www.example.com): ")
-    url(dir_url)
-except:
-  print(Fore.RED+"\n\n[+] URL: "+dir_url)
-  print(Fore.RED+"\n[!] No se encontró nada.\n")
+def main():
+  try:
+    os.system("cls")
+    while True:
+      dir_url = input(Fore.RED+"\n[!] ctrl-c para salir."+Fore.RESET+"\n\nIngrese una direccion web (example: www.example.com): ")
+      url(dir_url)
+  except:
+    print(Fore.RED+"\n\n[+] URL: "+dir_url)
+    print(Fore.RED+"\n[!] No se encontró nada.\n")
 
-
-
+if __name__ == "__main__":
+  main()
 
 
 
